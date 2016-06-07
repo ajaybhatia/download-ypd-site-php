@@ -103,7 +103,7 @@ foreach ($devices as $idx => $device)
 
                             foreach ($builds as $idx => $build) {
                         ?>            
-                            <table id="<?= $devices[$idx] ?>" class="table table-hover table-striped table-condensed">
+                            <table id="<?= $devices[$idx] ?>" class="table table-responsive table-hover table-striped table-condensed">
                                 <thead>
                                     <tr>
                                         <th>Device</th>
