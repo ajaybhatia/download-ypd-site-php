@@ -23,8 +23,21 @@ function initMenu() {
 			checkElement.slideDown('normal');
 			return false;
 		}
+
+		// Toggle active class
 		$('#menu li a').not(this).parent().removeClass('active');
 		$(this).parent().addClass('active');
+
+		// Replace whitespace with '-'
+		var deviceName = $.trim($(this).text().toLowerCase());
+		deviceName = deviceName.replace(/ /g, '-');
+		
+		// Make device id
+		var deviceID = '#' + deviceName;
+
+		// show only selected table
+		$('table').not(deviceID).css('display', 'none');
+		$(deviceID).css('display', 'table');
 	});
 }
 

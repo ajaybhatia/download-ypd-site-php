@@ -111,7 +111,66 @@
                 <div class="container-fluid xyz">
                     <div class="row">
                         <div class="col-lg-12">
-                            <table class="table table-hover table-striped table-condensed">
+                            <table id="yunicorn" class="table table-hover table-striped table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>Device</th>
+                                        <th>Type</th>
+                                        <th>Filename</th>
+                                        <th>sha1</th>
+                                        <th>Date Added</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Yunicorn</td>
+                                        <td>nightly</td>
+                                        <td>
+                                            <a>yufastboot-images-lettuce-160518.tar.gz</a>
+                                        </td>
+                                        <td>14647deb1c6140d9098a9205a756f968437a085d</td>
+                                        <td>May 18, 2016 4:35:00 PM</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Yunicorn</td>
+                                        <td>nightly</td>
+                                        <td>
+                                            <a>yufastboot-images-lettuce-160518.tar.gz</a>
+                                        </td>
+                                        <td>14647deb1c6140d9098a9205a756f968437a085d</td>
+                                        <td>May 18, 2016 4:35:00 PM</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Yunicorn</td>
+                                        <td>nightly</td>
+                                        <td>
+                                            <a>yufastboot-images-lettuce-160518.tar.gz</a>
+                                        </td>
+                                        <td>14647deb1c6140d9098a9205a756f968437a085d</td>
+                                        <td>May 18, 2016 4:35:00 PM</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Yunicorn</td>
+                                        <td>nightly</td>
+                                        <td>
+                                            <a>yufastboot-images-lettuce-160518.tar.gz</a>
+                                        </td>
+                                        <td>14647deb1c6140d9098a9205a756f968437a085d</td>
+                                        <td>May 18, 2016 4:35:00 PM</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Yunicorn</td>
+                                        <td>nightly</td>
+                                        <td>
+                                            <a>yufastboot-images-lettuce-160518.tar.gz</a>
+                                        </td>
+                                        <td>14647deb1c6140d9098a9205a756f968437a085d</td>
+                                        <td>May 18, 2016 4:35:00 PM</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table id="yutopia" class="table table-hover table-striped table-condensed">
                                 <thead>
                                     <tr>
                                         <th>Device</th>
