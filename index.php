@@ -1,3 +1,24 @@
+<?php
+
+require_once 'helpers/db_functions.php';
+
+$instance = new DB_Functions();
+
+$devices = [
+    'yunicorn', 
+    'yutopia',
+    'yunique', 
+    'yuphoria', 
+    'yureka'
+];
+
+$builds = [];
+
+foreach ($devices as $idx => $device)
+    $builds[$idx] = $instance->getBuildDate($device);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,55 +76,22 @@
             <!-- Sidebar -->
             <div id="sidebar-wrapper">
                 <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
+                <?php
 
-                    <li class="active">
+                    foreach ($devices as $idx => $device) {      
+                ?>
+
+                    <li class="<?= ($idx == 0) ? 'active' : '' ?>">
                         <a href="#">
                             <span class="fa-stack fa-lg pull-left">
                                 <i class="fa fa-mobile fa-stack-2x"></i>
                             </span>
-                            Yunicorn
+                            <?= ucfirst($device) ?>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <span class="fa-stack fa-lg pull-left">
-                                <i class="fa fa-mobile fa-stack-2x"></i>
-                            </span>
-                            Yutopia
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="fa-stack fa-lg pull-left">
-                                <i class="fa fa-mobile fa-stack-2x"></i>
-                            </span>
-                            Yureka Note
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="fa-stack fa-lg pull-left">
-                                <i class="fa fa-mobile fa-stack-2x"></i>
-                            </span>
-                            Yunique
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="fa-stack fa-lg pull-left">
-                                <i class="fa fa-mobile fa-stack-2x"></i>
-                            </span>
-                            Yuphoria
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="fa-stack fa-lg pull-left">
-                                <i class="fa fa-mobile fa-stack-2x"></i>
-                            </span>
-                            Yureka
-                        </a>
-                    </li>
+                <?php
+                    }
+                ?>
                 </ul>
             </div><!-- /#sidebar-wrapper -->
             <!-- Page Content -->
@@ -111,66 +99,11 @@
                 <div class="container-fluid xyz">
                     <div class="row">
                         <div class="col-lg-12">
-                            <table id="yunicorn" class="table table-hover table-striped table-condensed">
-                                <thead>
-                                    <tr>
-                                        <th>Device</th>
-                                        <th>Type</th>
-                                        <th>Filename</th>
-                                        <th>sha1</th>
-                                        <th>Date Added</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Yunicorn</td>
-                                        <td>nightly</td>
-                                        <td>
-                                            <a>yufastboot-images-lettuce-160518.tar.gz</a>
-                                        </td>
-                                        <td>14647deb1c6140d9098a9205a756f968437a085d</td>
-                                        <td>May 18, 2016 4:35:00 PM</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Yunicorn</td>
-                                        <td>nightly</td>
-                                        <td>
-                                            <a>yufastboot-images-lettuce-160518.tar.gz</a>
-                                        </td>
-                                        <td>14647deb1c6140d9098a9205a756f968437a085d</td>
-                                        <td>May 18, 2016 4:35:00 PM</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Yunicorn</td>
-                                        <td>nightly</td>
-                                        <td>
-                                            <a>yufastboot-images-lettuce-160518.tar.gz</a>
-                                        </td>
-                                        <td>14647deb1c6140d9098a9205a756f968437a085d</td>
-                                        <td>May 18, 2016 4:35:00 PM</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Yunicorn</td>
-                                        <td>nightly</td>
-                                        <td>
-                                            <a>yufastboot-images-lettuce-160518.tar.gz</a>
-                                        </td>
-                                        <td>14647deb1c6140d9098a9205a756f968437a085d</td>
-                                        <td>May 18, 2016 4:35:00 PM</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Yunicorn</td>
-                                        <td>nightly</td>
-                                        <td>
-                                            <a>yufastboot-images-lettuce-160518.tar.gz</a>
-                                        </td>
-                                        <td>14647deb1c6140d9098a9205a756f968437a085d</td>
-                                        <td>May 18, 2016 4:35:00 PM</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <?php
 
-                            <table id="yutopia" class="table table-hover table-striped table-condensed">
+                            foreach ($builds as $idx => $build) {
+                        ?>            
+                            <table id="<?= $devices[$idx] ?>" class="table table-hover table-striped table-condensed">
                                 <thead>
                                     <tr>
                                         <th>Device</th>
@@ -181,53 +114,30 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php
+
+                                    while ($b = $build->fetch_object()) {
+                                ?>
                                     <tr>
-                                        <td>Yutopia</td>
-                                        <td>nightly</td>
+                                        <td><?= $b->device ?></td>
+                                        <td><?= $b->build_type ?></td>
                                         <td>
-                                            <a>yufastboot-images-lettuce-160518.tar.gz</a>
+                                            <a href="<?= $b->build_path ?>/<?= $b->build_name ?>">
+                                                <?= $b->build_name ?>
+                                            </a>
                                         </td>
-                                        <td>14647deb1c6140d9098a9205a756f968437a085d</td>
-                                        <td>May 18, 2016 4:35:00 PM</td>
+                                        <td><?= $b->sha_1 ?></td>
+                                        <td><?= date_format(date_create($b->time_added), 'M d, Y g:i:s A') ?></td>
                                     </tr>
-                                    <tr>
-                                        <td>Yutopia</td>
-                                        <td>nightly</td>
-                                        <td>
-                                            <a>yufastboot-images-lettuce-160518.tar.gz</a>
-                                        </td>
-                                        <td>14647deb1c6140d9098a9205a756f968437a085d</td>
-                                        <td>May 18, 2016 4:35:00 PM</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Yutopia</td>
-                                        <td>nightly</td>
-                                        <td>
-                                            <a>yufastboot-images-lettuce-160518.tar.gz</a>
-                                        </td>
-                                        <td>14647deb1c6140d9098a9205a756f968437a085d</td>
-                                        <td>May 18, 2016 4:35:00 PM</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Yutopia</td>
-                                        <td>nightly</td>
-                                        <td>
-                                            <a>yufastboot-images-lettuce-160518.tar.gz</a>
-                                        </td>
-                                        <td>14647deb1c6140d9098a9205a756f968437a085d</td>
-                                        <td>May 18, 2016 4:35:00 PM</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Yutopia</td>
-                                        <td>nightly</td>
-                                        <td>
-                                            <a>yufastboot-images-lettuce-160518.tar.gz</a>
-                                        </td>
-                                        <td>14647deb1c6140d9098a9205a756f968437a085d</td>
-                                        <td>May 18, 2016 4:35:00 PM</td>
-                                    </tr>
+                                <?php
+                                    }
+                                ?>
                                 </tbody>
                             </table>
+                        <?php
+                            }
+                        ?>
+                            
                         </div>
                     </div>
                 </div>
