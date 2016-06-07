@@ -2,6 +2,8 @@
  
 class DB_Connect {
  
+	private $con;
+
     // constructor
     function __construct() {
  
@@ -16,17 +18,15 @@ class DB_Connect {
     public function connect() {
         require_once 'config/config.php';
         // connecting to mysql
-        $con = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
-        // selecting database
-        mysql_select_db(DB_DATABASE);
+        $this->con = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
  
         // return database handler
-        return $con;
+        return $this->con;
     }
  
     // Closing database connection
     public function close() {
-        mysql_close();
+        $this->con->close();
     }
  
 } 
