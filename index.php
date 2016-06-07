@@ -104,6 +104,7 @@ foreach ($devices as $idx => $device)
                             foreach ($builds as $idx => $build) {
                         ?>            
                             <table id="<?= $devices[$idx] ?>" class="table table-responsive table-hover table-striped table-condensed">
+                            <caption class="text-center"><h3><?= ucfirst($devices[$idx]) ?> Build(s)</h3></caption>
                                 <thead>
                                     <tr>
                                         <th>Device</th>
