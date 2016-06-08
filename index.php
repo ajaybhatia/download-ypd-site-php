@@ -123,7 +123,7 @@ foreach ($devices as $idx => $device)
                                         <td><?= $b->device ?></td>
                                         <td><?= $b->build_type ?></td>
                                         <td>
-                                            <a href="<?= $b->build_path ?>/<?= $b->build_name ?>">
+                                            <a href="<?= $b->build_path ?>">
                                                 <?= $b->build_name ?>
                                             </a>
                                         </td>
