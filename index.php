@@ -5,17 +5,25 @@ require_once 'helpers/db_functions.php';
 $instance = new DB_Functions();
 
 $devices = [
-    'yunicorn', 
-    'yutopia',
     'yunique', 
     'yuphoria', 
-    'yureka'
+    'yureka',
+    'yunicorn', 
+    'yutopia',
+];
+
+$codenames = [
+    'jalebi',
+    'lettuce',
+    'tomato',
+    '',
+    ''
 ];
 
 $builds = [];
 
-foreach ($devices as $idx => $device)
-    $builds[$idx] = $instance->getBuildDate($device);
+foreach ($codenames as $idx => $codename)
+    $builds[$idx] = $instance->getBuildDate($codename);
 
 ?>
 
@@ -115,9 +123,18 @@ foreach ($devices as $idx => $device)
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-
-                                    while ($b = $build->fetch_object()) {
+                                <?php
+                                  
+                                    if ($build->num_rows == 0) {
+                                ?>
+                                    <tr>
+                                        <td colspan="5" class="text-center">
+                                            <h4>Coming Soon</h4>
+                                        </td>
+                                    </tr>
+                                <?php
+                                    } else {
+                                        while ($b = $build->fetch_object()) {
                                 ?>
                                     <tr>
                                         <td><?= $b->device ?></td>
@@ -131,6 +148,7 @@ foreach ($devices as $idx => $device)
                                         <td><?= date_format(date_create($b->time_added), 'M d, Y g:i:s A') ?></td>
                                     </tr>
                                 <?php
+                                       }
                                     }
                                 ?>
                                 </tbody>
