@@ -5,19 +5,19 @@ require_once 'helpers/db_functions.php';
 $instance = new DB_Functions();
 
 $devices = [
+    'yunicorn', 
+    'yutopia',
     'yunique', 
     'yuphoria', 
     'yureka',
-    'yunicorn', 
-    'yutopia',
 ];
 
 $codenames = [
+    '',
+    'sambhar',
     'jalebi',
     'lettuce',
-    'tomato',
-    '',
-    'sambhar'
+    'tomato'
 ];
 
 $builds = [];
@@ -63,7 +63,7 @@ foreach ($codenames as $idx => $codename)
 
     <body>
 
-        <nav class="navbar navbar-blue no-margin">
+        <nav class="navbar navbar-blue navbar-fixed-top no-margin">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header fixed-brand">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"  id="menu-toggle">
