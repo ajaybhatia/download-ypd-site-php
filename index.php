@@ -20,6 +20,14 @@ $codenames = [
     'tomato'
 ];
 
+$hexcodes = [
+    /*'',
+    '',*/
+    '',
+    '-i 0x2A96',
+    '-i 0x1ebf'
+];
+
 $builds = [];
 
 foreach ($codenames as $idx => $codename)
@@ -96,6 +104,14 @@ foreach ($codenames as $idx => $codename)
                             </span>
                             <?= ucfirst($device) ?>
                         </a>
+                        <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+                            <li class="item-instruct">
+                                <a href="#"><span class="fa-stack fa-lg pull-left">
+                                    <i class="fa fa-flag fa-stack-1x "></i>
+                                    </span>Flashing Instructions
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 <?php
                     }
@@ -153,10 +169,82 @@ foreach ($codenames as $idx => $codename)
                                 ?>
                                 </tbody>
                             </table>
+
+                            <div class="<?= $devices[$idx] ?>-flashing">
+                                <div id="dialog">
+                                    <strong>Flashing Instructions for <?= ucfirst($devices[$idx]) ?></strong>
+                                    <ol>
+                                        <li>Flash images with Fastboot</li>
+                                            <ol class="u-alpha-list">
+                                                <li>Execute below commands in terminal</li>
+                                                <li>
+                                                    Connect device in fastboot mode<br>
+                                                    <code>adb reboot bootloader</code>
+                                                </li>
+                                                <li>
+                                                    Check if device is detecting in fastboot mode<br>
+                                                    <code>fastboot <?= $hexcodes[$idx] ?> devices </code>
+                                                </li>
+                                                <li>
+                                                    Unlock bootloader
+                                                    <code>fastboot <?= $hexcodes[$idx] ?> oem unlock</code>
+                                                </li>
+                                                <li>
+                                                    Format User data<br>
+                                                    <code>fastboot <?= $hexcodes[$idx] ?> format userdata</code>
+                                                </li>
+                                                <li>
+                                                    Flash kernel<br>
+                                                    <code>fastboot <?= $hexcodes[$idx] ?> flash boot boot.img</code>
+                                                </li>
+                                                <li>
+                                                    Flash recovery<br>
+                                                    <code>fastboot <?= $hexcodes[$idx] ?> flash recovery recovery.img</code>
+                                                </li>
+                                                <li>
+                                                    Flash system partition<br>
+                                                    <code>fastboot <?= $hexcodes[$idx] ?> flash system system.img</code>
+                                                </li>
+                                                <li>
+                                                    Flash data partition<br>
+                                                    <code>fastboot <?= $hexcodes[$idx] ?> flash userdata userdata.img</code>
+                                                </li>
+                                                <li>
+                                                    Relock bootloader<br>
+                                                    <code>fastboot <?= $hexcodes[$idx] ?> oem lock</code>
+                                                </li>
+                                                <li>
+                                                    Reboot device<br>
+                                                    <code>fastboot <?= $hexcodes[$idx] ?> reboot</code>
+                                                </li>
+                                            </ol>
+                                          <li>
+                                            <strong>Flashing zip file with ADB sideload</strong>
+                                            <ol class="u-alpha-list">
+                                              <li>
+                                                Connect device in recovery mode by executing below command in terminal<br>
+                                                <code>adb reboot recovery</code>
+                                              </li>
+                                              <li>
+                                                Select Apply Update from ADB
+                                              </li>
+                                              <li>
+                                                Check if device is detecting in sideload<br>
+                                                <code>adb devices</code>
+                                              </li>
+                                              <li>
+                                                Sideload YU-OPEN-OS<br>
+                                                <code>adb sideload path_to_zipfile</code>
+                                              </li>
+                                            </ol>
+                                      </li>
+                                    </ol>
+                                </div>
+                            </div>
                         <?php
                             }
                         ?>
-                            
+
                         </div>
                     </div>
                 </div>

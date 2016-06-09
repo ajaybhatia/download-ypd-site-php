@@ -16,12 +16,12 @@ function initMenu() {
 	$('#menu li a').click(function() {
 		var checkElement = $(this).next();
 		if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
-			return false;
+			//return false;
 		}
 		if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
 			$('#menu ul:visible').slideUp('normal');
 			checkElement.slideDown('normal');
-			return false;
+			//return false;
 		}
 
 		// Toggle active class
@@ -38,9 +38,16 @@ function initMenu() {
 		// show only selected table
 		$('table').not(deviceID).css('display', 'none');
 		$(deviceID).css('display', 'table');
+		$('[class$=flashing]').css('display', 'none');
 	});
 }
 
 $(document).ready(function() {
 	initMenu();
+
+	$('.item-instruct').click(function() {
+		var deviceName = $.trim($(this).parent().parent().children('a').first().text()).toLowerCase();
+		var deviceClass = "." + deviceName + "-flashing";
+		$(deviceClass).css('display', 'block');
+	});
 });

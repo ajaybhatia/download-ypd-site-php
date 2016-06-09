@@ -107,7 +107,7 @@
     color: #fff;
 }
 
-table {
+table, div[class$="flashing"] {
     display: none;
 }
 
