@@ -160,7 +160,7 @@ foreach ($codenames as $idx => $codename)
                                                 <?= $b->build_name ?>
                                             </a>
                                         </td>
-                                        <td><?= $b->sha_1 ?></td>
+                                        <td><?= $b->sha1 ?></td>
                                         <td><?= date_format(date_create($b->time_added), 'M d, Y g:i:s A') ?></td>
                                     </tr>
                                 <?php
