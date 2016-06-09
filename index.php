@@ -5,16 +5,16 @@ require_once 'helpers/db_functions.php';
 $instance = new DB_Functions();
 
 $devices = [
-    'yunicorn', 
-    'yutopia',
+    /*'yunicorn', 
+    'yutopia',*/
     'yunique', 
     'yuphoria', 
     'yureka',
 ];
 
 $codenames = [
-    '',
-    'sambhar',
+    /*'',
+    'sambhar',*/
     'jalebi',
     'lettuce',
     'tomato'
