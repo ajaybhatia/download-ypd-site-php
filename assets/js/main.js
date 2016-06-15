@@ -50,4 +50,17 @@ $(document).ready(function() {
 		var deviceClass = "." + deviceName + "-flashing";
 		$(deviceClass).css('display', 'block');
 	});
+
+	$('table tr td a').click(function() {
+		var id = $(this).attr('data-val');
+
+		$.ajax({
+			type: 'GET',
+			url: 'helpers/update_downloads.php',
+			data: 'id=' + id,
+			success: function(data) {
+
+			}
+		});
+	});
 });
