@@ -27,6 +27,14 @@ class DB_Functions {
         return $this->con->query("SELECT * FROM build WHERE device='" . $deviceName . "'");
     }
    	
+
+    /**
+     * Update and Get number of Downloads
+     */
+    public function updateAndGetDownloads($id) {
+        $this->con->query("UPDATE build SET downloads = downloads + 1 WHERE ID = " . $id) or die();
+        return $this->con->query("SELECT downloads FROM build WHERE ID=" . $id) or die();
+    }
 }
 
 ?>
