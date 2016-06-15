@@ -32,8 +32,8 @@ class DB_Functions {
      * Update and Get number of Downloads
      */
     public function updateAndGetDownloads($id) {
-        $this->con->query("UPDATE build SET downloads = downloads + 1 WHERE ID = " . $id) or die();
-        return $this->con->query("SELECT downloads FROM build WHERE ID=" . $id) or die();
+        $this->con->query("UPDATE build SET downloads = downloads + 1 WHERE ID = " . $id);
+        return $this->con->query("SELECT downloads FROM build WHERE ID=" . $id)->fetch_object()->downloads;
     }
 }
 

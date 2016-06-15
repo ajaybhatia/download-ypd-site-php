@@ -51,15 +51,21 @@ $(document).ready(function() {
 		$(deviceClass).css('display', 'block');
 	});
 
-	$('table tr td a').click(function() {
+	$('table tr td a').click(function(e) {
+		e.preventDefault();
+
 		var id = $(this).attr('data-val');
+		var href = $(this).attr('data-href');
+		var object = $(this);
 
 		$.ajax({
 			type: 'GET',
 			url: 'helpers/update_downloads.php',
 			data: 'id=' + id,
+			dataType: 'text',
 			success: function(data) {
-
+				window.location.href = href;
+				object.parent().parent().children('td').last().html(data);
 			}
 		});
 	});
