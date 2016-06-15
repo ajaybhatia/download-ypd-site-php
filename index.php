@@ -136,6 +136,7 @@ foreach ($codenames as $idx => $codename)
                                         <th>Filename</th>
                                         <th>sha1</th>
                                         <th>Date Added</th>
+                                        <th>Downloads</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -144,7 +145,7 @@ foreach ($codenames as $idx => $codename)
                                     if ($build->num_rows == 0) {
                                 ?>
                                     <tr>
-                                        <td colspan="5" class="text-center">
+                                        <td colspan="6" class="text-center">
                                             <h4>Coming Soon</h4>
                                         </td>
                                     </tr>
@@ -156,12 +157,13 @@ foreach ($codenames as $idx => $codename)
                                         <td><?= $b->device ?></td>
                                         <td><?= $b->build_type ?></td>
                                         <td>
-                                            <a href="<?= $b->build_path ?>">
+                                            <a href="<?= $b->build_path ?>" data-val="<?= $b->id ?>">
                                                 <?= $b->build_name ?>
                                             </a>
                                         </td>
                                         <td><?= $b->sha1 ?></td>
                                         <td><?= date_format(date_create($b->time_added), 'M d, Y g:i:s A') ?></td>
+                                        <td><?= $b->downloads ?></td>
                                     </tr>
                                 <?php
                                        }
