@@ -137,6 +137,7 @@ foreach ($codenames as $idx => $codename)
                                         <th>sha1</th>
                                         <th>Date Added</th>
                                         <th>Downloads</th>
+                                        <th>Changelog</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -145,7 +146,7 @@ foreach ($codenames as $idx => $codename)
                                     if ($build->num_rows == 0) {
                                 ?>
                                     <tr>
-                                        <td colspan="6" class="text-center">
+                                        <td colspan="7" class="text-center">
                                             <h4>Coming Soon</h4>
                                         </td>
                                     </tr>
@@ -164,6 +165,17 @@ foreach ($codenames as $idx => $codename)
                                         <td><?= $b->sha1 ?></td>
                                         <td><?= date_format(date_create($b->time_added), 'M d, Y g:i:s A') ?></td>
                                         <td><?= $b->downloads ?></td>
+                                        <td>
+                                            <?php if (empty($b->changelog_path)) {?>
+                                            <a href="#">
+                                                <i class="fa fa-times"></i>
+                                            </a> 
+                                            <?php } else { ?>
+                                            <a href="<?= $b->changelog_path ?>">
+                                                <i class="fa fa-file-text-o"></i>
+                                            </a>
+                                            <?php } ?>
+                                        </td>
                                     </tr>
                                 <?php
                                        }
