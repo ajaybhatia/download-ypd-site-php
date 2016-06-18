@@ -65,7 +65,7 @@ $(document).ready(function() {
 			dataType: 'text',
 			success: function(data) {
 				window.location.href = href;
-				$('td:nth-last-child(2)').html(data);
+				object.parent().parent().children('td').eq(5).html(data);
 			}
 		});
 	});
