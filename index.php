@@ -158,7 +158,7 @@ foreach ($codenames as $idx => $codename)
                                         <td><?= $b->device ?></td>
                                         <td><?= $b->build_type ?></td>
                                         <td>
-                                            <a href="#" data-val="<?= $b->id ?>" data-href="<?= $b->build_path ?>">
+                                            <a class="js-build-path" href="#" data-val="<?= $b->id ?>" data-href="<?= $b->build_path ?>">
                                                 <?= $b->build_name ?>
                                             </a>
                                         </td>

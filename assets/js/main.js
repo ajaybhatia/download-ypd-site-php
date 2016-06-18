@@ -51,7 +51,7 @@ $(document).ready(function() {
 		$(deviceClass).css('display', 'block');
 	});
 
-	$('table tr td a').click(function(e) {
+	$('.js-build-path').click(function(e) {
 		e.preventDefault();
 
 		var id = $(this).attr('data-val');
@@ -65,7 +65,7 @@ $(document).ready(function() {
 			dataType: 'text',
 			success: function(data) {
 				window.location.href = href;
-				object.parent().parent().children('td').last().html(data);
+				$('td:nth-last-child(2)').html(data);
 			}
 		});
 	});
