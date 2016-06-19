@@ -31,7 +31,7 @@ $hexcodes = [
 $builds = [];
 
 foreach ($codenames as $idx => $codename)
-    $builds[$idx] = $instance->getBuildDate($codename);
+    $builds[$idx] = $instance->getBuildData($codename);
 
 ?>
 

@@ -23,8 +23,8 @@ class DB_Functions {
     /**
      * Gets Build Data by Device name
      */
-    public function getBuildDate($deviceName) {
-        return $this->con->query("SELECT * FROM build WHERE device='" . $deviceName . "'");
+    public function getBuildData($deviceName) {
+        return $this->con->query("SELECT * FROM build WHERE device='" . $deviceName . "' ORDER BY time_added DESC");
     }
    	
 
