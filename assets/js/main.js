@@ -35,11 +35,16 @@ function initMenu() {
 		// Make device id
 		var deviceID = '#' + deviceName;
 
-		// show only selected table
+		/* code section for showing only selected table and it's pager */
+		// hide all table except selected device one
 		$('table').not(deviceID).css('display', 'none');
+		// hide all pager except current table's
 		$('table').not(deviceID).next().css('display', 'none');
+		// show current table only
 		$(deviceID).css('display', 'table');
+		// show current table's pager only
 		$(deviceID).next().css('display', 'block');
+		// show current table's (device's) flashing instructions
 		$('[class$=flashing]').css('display', 'none');
 	});
 }
