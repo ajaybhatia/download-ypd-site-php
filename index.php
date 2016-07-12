@@ -122,12 +122,12 @@ foreach ($codenames as $idx => $codename)
             <div id="page-content-wrapper">
                 <div class="container-fluid xyz">
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-12 table-responsive">
                         <?php
 
                             foreach ($builds as $idx => $build) {
                         ?>            
-                            <table id="<?= $devices[$idx] ?>" class="table table-responsive table-hover table-striped table-condensed paginated">
+                            <table id="<?= $devices[$idx] ?>" class="table table-hover table-striped table-condensed paginated">
                             <caption class="text-center"><h3><?= ucfirst($devices[$idx]) ?> Build(s)</h3></caption>
                                 <thead>
                                     <tr>
