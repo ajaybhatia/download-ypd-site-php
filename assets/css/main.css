@@ -115,7 +115,7 @@ table, .pager, div[class$="flashing"] {
     display: table;
 }
 
-#yunique+.pager {
+#yutopia+.pager {
     display: block;
 }
 

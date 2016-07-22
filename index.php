@@ -22,7 +22,7 @@ $codenames = [
 
 $hexcodes = [
     /*'',*/
-    '',
+    '-i 0x2A96',
     '',
     '-i 0x2A96',
     '-i 0x1ebf'
