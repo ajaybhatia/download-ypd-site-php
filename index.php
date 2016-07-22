@@ -224,10 +224,6 @@ foreach ($codenames as $idx => $codename)
                                                     <code>fastboot <?= $hexcodes[$idx] ?> flash userdata userdata.img</code>
                                                 </li>
                                                 <li>
-                                                    Relock bootloader<br>
-                                                    <code>fastboot <?= $hexcodes[$idx] ?> oem lock</code>
-                                                </li>
-                                                <li>
                                                     Reboot device<br>
                                                     <code>fastboot <?= $hexcodes[$idx] ?> reboot</code>
                                                 </li>
