@@ -5,24 +5,24 @@ require_once 'helpers/db_functions.php';
 $instance = new DB_Functions();
 
 $devices = [
-    /*'yunicorn', 
-    'yutopia',*/
+    /*'yunicorn',*/
+    'yutopia',
     'yunique', 
     'yuphoria', 
     'yureka',
 ];
 
 $codenames = [
-    /*'',
-    'sambhar',*/
+    /*'',*/
+    'sambhar',
     'jalebi',
     'lettuce',
     'tomato'
 ];
 
 $hexcodes = [
-    /*'',
-    '',*/
+    /*'',*/
+    '',
     '',
     '-i 0x2A96',
     '-i 0x1ebf'
