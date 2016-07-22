@@ -14,7 +14,7 @@ $devices = [
 
 $codenames = [
     /*'',*/
-    'sambhar',
+    'sambar',
     'jalebi',
     'lettuce',
     'tomato'
