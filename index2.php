@@ -125,7 +125,7 @@ foreach ($codenames as $idx => $codename)
                         <div class="col-lg-12 table-responsive">
                             <ul class="nav nav-tabs nav-justified">
                                 <li class="active" id="yu-open-os"><a href="#">YU-Open-OS</a></li>
-                                <li><a href="#" id="yu-os">YUOS</a></li>
+                                <li><a href="#" id="yu-os">YUOS (Android 6.0.1 with Google apps)</a></li>
                             </ul>
 
                         <?php
@@ -190,7 +190,7 @@ foreach ($codenames as $idx => $codename)
                             </table>
 
                             <table id="<?= $devices[$idx] ?>-yuos" class="table table-hover table-striped table-condensed paginated">
-                                <caption class="text-center"><h3><?= ucfirst($devices[$idx]) ?> YU-OS Build(s)</h3></caption>
+                                <caption class="text-center"><h3><?= ucfirst($devices[$idx]) ?> YUOS (Android 6.0.1 with Google apps) Build(s)</h3></caption>
                                 <thead>
                                     <tr>
                                         <th>Device</th>
