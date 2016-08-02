@@ -39,7 +39,11 @@ function initMenu() {
 		_deviceID = deviceID;
 
 		toggleDeviceTable(deviceID);
+		
+		makeFirstLiActive();
 	});
+
+	makeFirstLiActive();
 }
 
 $(document).ready(function() {
@@ -116,14 +120,18 @@ $(document).ready(function() {
 
 function toggleDeviceTable(id) {
 	/* code section for showing only selected table and it's pager */
-		// hide all table except selected device one
-		$('table').not(id).css('display', 'none');
-		// hide all pager except current table's
-		$('table').not(id).next().css('display', 'none');
-		// show current table only
-		$(id).css('display', 'table');
-		// show current table's pager only
-		$(id).next().css('display', 'block');
-		// show current table's (device's) flashing instructions
-		$('[class$=flashing]').css('display', 'none');
+	// hide all table except selected device one
+	$('table').not(id).css('display', 'none');
+	// hide all pager except current table's
+	$('table').not(id).next().css('display', 'none');
+	// show current table only
+	$(id).css('display', 'table');
+	// show current table's pager only
+	$(id).next().css('display', 'block');
+	// show current table's (device's) flashing instructions
+	$('[class$=flashing]').css('display', 'none');
+}
+
+function makeFirstLiActive() {
+	$('.nav-tabs li:nth-child(1)').addClass('active');
 }
