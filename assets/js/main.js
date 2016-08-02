@@ -9,6 +9,8 @@ $("#menu-toggle-2").click(function(e) {
     $('#menu ul').hide();
 });
 
+var _deviceID = '#yutopia';
+
 function initMenu() {
 	$('#menu ul').hide();
 	$('#menu ul').children('.current').parent().show();
@@ -34,18 +36,9 @@ function initMenu() {
 		
 		// Make device id
 		var deviceID = '#' + deviceName;
+		_deviceID = deviceID;
 
-		/* code section for showing only selected table and it's pager */
-		// hide all table except selected device one
-		$('table').not(deviceID).css('display', 'none');
-		// hide all pager except current table's
-		$('table').not(deviceID).next().css('display', 'none');
-		// show current table only
-		$(deviceID).css('display', 'table');
-		// show current table's pager only
-		$(deviceID).next().css('display', 'block');
-		// show current table's (device's) flashing instructions
-		$('[class$=flashing]').css('display', 'none');
+		toggleDeviceTable(deviceID);
 	});
 }
 
@@ -100,4 +93,37 @@ $(document).ready(function() {
 	    }
 	    $pager.insertAfter($table).find('span.page-number:first').addClass('active');
 	});
+
+	$('#yu-open-os').click(function () {
+		$(this).removeClass('active');
+		$('#yu-os').addClass('active');
+		
+		if (_deviceID.includes('-'))
+			_deviceID = _deviceID.split('-')[0];
+
+		toggleDeviceTable(_deviceID);
+	});
+
+	$('#yu-os').click(function () {
+		$(this).removeClass('active');
+		$('#yu-open-os').addClass('active');
+		
+		_deviceID += '-yuos';
+		
+		toggleDeviceTable(_deviceID);
+	});
 });
+
+function toggleDeviceTable(id) {
+	/* code section for showing only selected table and it's pager */
+		// hide all table except selected device one
+		$('table').not(id).css('display', 'none');
+		// hide all pager except current table's
+		$('table').not(id).next().css('display', 'none');
+		// show current table only
+		$(id).css('display', 'table');
+		// show current table's pager only
+		$(id).next().css('display', 'block');
+		// show current table's (device's) flashing instructions
+		$('[class$=flashing]').css('display', 'none');
+}
