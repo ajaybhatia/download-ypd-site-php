@@ -157,6 +157,7 @@ foreach ($codenames as $idx => $codename)
                                 <?php
                                     } else {
                                         while ($b = $build->fetch_object()) {
+                                            if ($b->build_type == 'nightly') {
                                 ?>
                                     <tr>
                                         <td><?= $b->device ?></td>
@@ -182,6 +183,7 @@ foreach ($codenames as $idx => $codename)
                                         </td>
                                     </tr>
                                 <?php
+                                            }
                                        }
                                     }
                                 ?>
@@ -189,7 +191,7 @@ foreach ($codenames as $idx => $codename)
                             </table>
 
                             <table id="<?= $devices[$idx] ?>-yuos" class="table table-hover table-striped table-condensed paginated">
-                                <caption class="text-center"><h3><?= ucfirst($devices[$idx]) ?> YUOS (Android 6.0.1 with Google apps) Build(s)</h3></caption>
+                                <caption class="text-center"><h3><?= ucfirst($devices[$idx]) ?> YUOS Official - Android 6.0.1 Build(s)</h3></caption>
                                 <thead>
                                     <tr>
                                         <th>Device</th>
@@ -203,15 +205,48 @@ foreach ($codenames as $idx => $codename)
                                     <tr>
                                 </thead>
                                 <tbody>
+                                    <?php
+                                  
+                                    if ($build->num_rows == 0) {
+                                ?>
                                     <tr>
-                                        <td>xxxxx</td>
-                                        <td>xxxxx</td>
-                                        <td>xxxxxxxxxxxx</td>
-                                        <td>xxxxxxxxxxxxxxxxxxxxxxxx</td>
-                                        <td>xxxxxxxxxxxx</td>
-                                        <td><a href="#">xxxxxxxx</a></td>
-                                        <td><a href="#">xxxxxxxxxxxx</a></td>
+                                        <td colspan="7" class="text-center">
+                                            <h4>Coming Soon</h4>
+                                        </td>
                                     </tr>
+                                <?php
+                                    } else {
+                                        while ($b = $build->fetch_object()) {
+                                            if ($b->build_type == 'stable') {
+                                ?>
+                                    <tr>
+                                        <td><?= $b->device ?></td>
+                                        <td><?= $b->build_type ?></td>
+                                        <td>
+                                            <a class="js-build-path" href="#" data-val="<?= $b->id ?>" data-href="<?= $b->build_path ?>">
+                                                <?= $b->build_name ?>
+                                            </a>
+                                        </td>
+                                        <td><?= $b->sha1 ?></td>
+                                        <td><?= date_format(date_create($b->time_added), 'M d, Y g:i:s A') ?></td>
+                                        <td><?= $b->downloads ?></td>
+                                        <td>
+                                            <?php if (empty($b->changelog_path)) {?>
+                                            <a href="#">
+                                                <i class="fa fa-times"></i>
+                                            </a> 
+                                            <?php } else { ?>
+                                            <a href="<?= $b->changelog_path ?>">
+                                                <i class="fa fa-file-text-o"></i>
+                                            </a>
+                                            <?php } ?>
+                                        </td>
+                                    </tr>
+                                <?php
+                                            }
+                                       }
+                                    }
+                                ?>
                                 </tbody>
                             </table>
 
