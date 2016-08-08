@@ -220,6 +220,7 @@ foreach ($codenames as $idx => $codename)
                                     </tr>
                                 <?php
                                     } else {
+                                        $build->data_seek(0);
                                         while ($b = $build->fetch_object()) {
                                             if ($b->build_type == 'stable') {
                                 ?>
