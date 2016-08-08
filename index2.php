@@ -210,8 +210,8 @@ foreach ($codenames as $idx => $codename)
                                 </thead>
                                 <tbody>
                                 <?php
-                                  
-                                    if ($build->num_rows == 0) {
+                                    $build->data_seek(0);
+                                    if ($build->fetch_object()[0]->build_type != 'stable') {
                                 ?>
                                     <tr>
                                         <td colspan="7" class="text-center">
