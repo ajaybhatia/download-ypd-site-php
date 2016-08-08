@@ -2,6 +2,10 @@
 
 require_once 'helpers/db_functions.php';
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 $instance = new DB_Functions();
 
 $devices = [
@@ -205,7 +209,7 @@ foreach ($codenames as $idx => $codename)
                                     <tr>
                                 </thead>
                                 <tbody>
-                                    <?php
+                                <?php
                                   
                                     if ($build->num_rows == 0) {
                                 ?>
