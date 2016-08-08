@@ -30,9 +30,10 @@ $hexcodes = [
 
 $builds = [];
 
-foreach ($codenames as $idx => $codename)
+foreach ($codenames as $idx => $codename) {
     $builds[$idx] = $instance->getBuildData($codename);
-
+    $activeBuilds[$idx] = $instance->isActiveBuildPresent($codename);
+}
 ?>
 
 <!DOCTYPE html>
@@ -206,7 +207,7 @@ foreach ($codenames as $idx => $codename)
                                 </thead>
                                 <tbody>
                                 <?php
-                                    if ($build->num_rows == 0) {
+                                    if ($activeBuilds[$idx] == 0) {
                                 ?>
                                     <tr>
                                         <td colspan="7" class="text-center">

@@ -26,8 +26,14 @@ class DB_Functions {
     public function getBuildData($deviceName) {
         return $this->con->query("SELECT * FROM build WHERE device='" . $deviceName . "' ORDER BY dt_added DESC");
     }
-   	
 
+    /**
+     * Check if stable build present on the basis of Device name
+     */
+    public function isActiveBuildPresent($deviceName) {
+        return $this->con->query("SELECT * FROM build WHERE device='" . $deviceName . "' AND build_type='stable' ORDER BY dt_added DESC")->num_rows;
+    }
+   	
     /**
      * Update and Get number of Downloads
      */
