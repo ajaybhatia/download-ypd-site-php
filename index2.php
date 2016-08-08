@@ -2,10 +2,6 @@
 
 require_once 'helpers/db_functions.php';
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 $instance = new DB_Functions();
 
 $devices = [
@@ -210,8 +206,7 @@ foreach ($codenames as $idx => $codename)
                                 </thead>
                                 <tbody>
                                 <?php
-                                    $build->data_seek(0);
-                                    if ($build->fetch_object()[0]->build_type != 'stable') {
+                                    if ($build->num_rows == 0) {
                                 ?>
                                     <tr>
                                         <td colspan="7" class="text-center">
