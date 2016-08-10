@@ -125,7 +125,7 @@ foreach ($codenames as $idx => $codename) {
                     <div class="row">
                         <ul class="nav nav-tabs nav-justified">
                             <li class="active" id="yu-open-os"><a href="#">YU-Open-OS</a></li>
-                            <li><a href="#" id="yu-os">YUOS (Android 6.0.1 with Google apps)</a></li>
+                            <li><a href="#" id="yu-os">YUOS Official - Android 6.0.1</a></li>
                         </ul>
                         <div class="col-lg-12 table-responsive">
                         <?php
