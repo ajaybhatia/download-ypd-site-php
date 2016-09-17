@@ -63,7 +63,7 @@ function showTermsAndConditions() {
 			+ "& doesnot support IMS Voice calls with out Jio Join app in VoLTE Simcards "
 			+ "Like Relience Jio.<br>"
 			+ "Please stay updated here for further releases.<br><br>"
-			+ "<em>For Yureka/Yureka + YUOS firmware will not contain VoLTE support.</em><br><br>"
+			+ "<em>For Yureka/Yureka+ YUOS firmware does not contain VoLTE support in the current build.</em><br><br>"
 			+ "<b>This Firmare will Force Encrypt Userdata, Flashing This on your device "
 			+ "may wipe/format your internal storage.</b>",
 		title: "Terms & Conditions",
