@@ -274,13 +274,39 @@ foreach ($codenames as $idx => $codename) {
                                                     <code>fastboot <?= $hexcodes[$idx] ?> oem unlock</code>
                                                 </li>
                                                 <li>
-                                                    Format User data<br>
-                                                    <code>fastboot <?= $hexcodes[$idx] ?> format userdata</code>
-                                                </li>
-                                                <li>
                                                     Flash kernel<br>
                                                     <code>fastboot <?= $hexcodes[$idx] ?> flash boot boot.img</code>
                                                 </li>
+                                            <?php if ($devices[$idx] != "yureka") { ?>
+                                                <li>
+                                                    Flash emmc boot apps<br>
+                                                    <code>fastboot <?= $hexcodes[$idx] ?> flash aboot emmc_appsboot.mbn</code>
+                                                </li>
+                                                <li>
+                                                    Flash Modem<br>
+                                                    <code>fastboot <?= $hexcodes[$idx] ?> flash modem NON-HLOS.bin</code>
+                                                </li>
+                                                <li>
+                                                    Flash rpm<br>
+                                                    <code>fastboot <?= $hexcodes[$idx] ?> flash rpm rpm.mbn</code>
+                                                </li>
+                                                <li>
+                                                    Flash sbl1<br>
+                                                    <code>fastboot <?= $hexcodes[$idx] ?> flash sbl1 sbl1.mbn</code>
+                                                </li>
+                                                <li>
+                                                    Flash tz<br>
+                                                    <code>fastboot <?= $hexcodes[$idx] ?> flash tz tz.mbn</code>
+                                                </li>
+                                                <li>
+                                                    Flash hyp<br>
+                                                    <code>fastboot <?= $hexcodes[$idx] ?> flash hyp hyp.mbn</code>
+                                                </li>
+                                                <li>
+                                                    Flash splash<br>
+                                                    <code>fastboot <?= $hexcodes[$idx] ?> flash splash splash.mbn</code>
+                                                </li>
+                                            <?php } ?>    
                                                 <li>
                                                     Flash recovery<br>
                                                     <code>fastboot <?= $hexcodes[$idx] ?> flash recovery recovery.img</code>
