@@ -74,6 +74,59 @@ $(document).ready(function() {
 		});
 	});
 
+	$('.js-yuos-build-path').click(function(e) {
+		e.preventDefault();
+
+		var id = $(this).attr('data-val');
+		var href = $(this).attr('data-href');
+		var object = $(this);
+
+		bootbox.dialog({
+	  		message: "You shall, by downloading any YUOS firmware and or software, "
+	  			+ "be deemed to have agreed to and accepted the following terms and conditions:<br><br>"
+	  			+ "YUOS firmware and software downloads shall apply to specific YU models and "
+	  			+ "are for use within specific territories only. The responsibility to ensure "
+	  			+ "the compatibility of your YUOS to download any specific YUOS firmware and or"
+	  			+ "software shall be solely vested in you; "
+				+ "downloading an incorrect / inappropriate firmware and or software "
+				+ "may cause malfunction to your YU product and you agree to discharge us "
+				+ "against any liability for the same.<br><br>"
+				+ "<b>*NOTE:Yunique & yuphoria</b><br>"
+ 				+ "YUOS firmware will only support Data Network in VoLTE Simcards "
+ 				+ "& doesnot support IMS Voice calls with out Jio Join app in VoLTE Simcards "
+ 				+ "Like Relience Jio.<br>"
+ 				+ "Please stay updated here for further releases.<br><br>"
+ 				+ "<b>*For YUreka/Yureka + YUOS firmware will not contain VoLTE support.<br><br>"
+ 				+ "This Firmare will Force Encrypt Userdata, Flashing This on your device "
+ 				+ "may wipe/format your internal storage.",
+			title: "Terms & Conditions",
+			buttons: {
+				success: {
+					label: "I Agree",
+					className: "btn-success",
+					callback: function() {
+						$.ajax({
+							type: 'GET',
+							url: 'helpers/update_downloads.php',
+							data: 'id=' + id,
+							dataType: 'text',
+							success: function(data) {
+								window.location.href = href;
+								object.parent().parent().children('td').eq(5).html(data);
+							}
+						});
+					}
+				},
+				danger: {
+					label: "I don't Agree",
+					className: "btn-danger",
+					callback: function() {
+					}
+				}
+			}
+		});
+	});
+
 	// Table Pagination
 	$('table.paginated').each(function() {
 	    var currentPage = 0;

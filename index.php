@@ -122,6 +122,9 @@ foreach ($codenames as $idx => $codename) {
             <!-- Page Content -->
             <div id="page-content-wrapper">
                 <div class="container-fluid xyz">
+                    <!-- Agreement Dialog -->                
+                    <!-- Agreement Dialog ends -->
+
                     <div class="row">
                         <ul class="nav nav-tabs nav-justified">
                             <li class="active" id="yu-open-os"><a href="#">YU-Open-OS</a></li>
@@ -224,7 +227,7 @@ foreach ($codenames as $idx => $codename) {
                                         <td><?= $b->device ?></td>
                                         <td><?= $b->build_type ?></td>
                                         <td>
-                                            <a class="js-build-path" href="#" data-val="<?= $b->id ?>" data-href="<?= $b->build_path ?>">
+                                            <a class="js-yuos-build-path" href="#" data-val="<?= $b->id ?>" data-href="<?= $b->build_path ?>">
                                                 <?= $b->build_name ?>
                                             </a>
                                         </td>
@@ -335,6 +338,9 @@ foreach ($codenames as $idx => $codename) {
 
         <!-- Bootstrap JavaScript -->
         <script src="assets/js/bootstrap.min.js"></script>
+
+        <!-- Bootbox JS -->
+        <script src="assets/js/bootbox.min.js"></script>
 
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <script src="Hello World"></script>
