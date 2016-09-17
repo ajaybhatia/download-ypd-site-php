@@ -227,7 +227,7 @@ foreach ($codenames as $idx => $codename) {
                                         <td><?= $b->device ?></td>
                                         <td><?= $b->build_type ?></td>
                                         <td>
-                                            <a class="js-yuos-build-path" href="#" data-val="<?= $b->id ?>" data-href="<?= $b->build_path ?>">
+                                            <a class="js-build-path" href="#" data-val="<?= $b->id ?>" data-href="<?= $b->build_path ?>">
                                                 <?= $b->build_name ?>
                                             </a>
                                         </td>
@@ -335,6 +335,9 @@ foreach ($codenames as $idx => $codename) {
 
         <!-- jQuery -->
         <script src="assets/js/jquery-2.2.4.min.js"></script>
+
+        <!-- jQuery Session -->
+        <script src="assets/js/jquery.session.js"></script>
 
         <!-- Bootstrap JavaScript -->
         <script src="assets/js/bootstrap.min.js"></script>
