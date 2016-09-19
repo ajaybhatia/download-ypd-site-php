@@ -304,7 +304,7 @@ foreach ($codenames as $idx => $codename) {
                                                 </li>
                                                 <li>
                                                     Flash splash<br>
-                                                    <code>fastboot <?= $hexcodes[$idx] ?> flash splash splash.mbn</code>
+                                                    <code>fastboot <?= $hexcodes[$idx] ?> flash splash splash.img</code>
                                                 </li>
                                             <?php } ?>    
                                                 <li>
