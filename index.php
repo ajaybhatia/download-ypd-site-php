@@ -10,6 +10,7 @@ $devices = [
     'yunique', 
     'yuphoria', 
     'yureka',
+    'yureka-black'
 ];
 
 $codenames = [
@@ -17,7 +18,8 @@ $codenames = [
     'sambar',
     'jalebi',
     'lettuce',
-    'tomato'
+    'tomato',
+    'black'
 ];
 
 $hexcodes = [
@@ -25,7 +27,8 @@ $hexcodes = [
     '-i 0x2A96',
     '',
     '-i 0x2A96',
-    '-i 0x1ebf'
+    '-i 0x1ebf',
+    ''
 ];
 
 $builds = [];
@@ -103,7 +106,14 @@ foreach ($codenames as $idx => $codename) {
                             <span class="fa-stack fa-lg pull-left">
                                 <i class="fa fa-mobile fa-stack-2x"></i>
                             </span>
-                            <?= ucfirst($device) ?>
+                    <?php 
+                        if (strpos($device, "-") !== false) {
+                            $deviceName = explode("-", $device);
+                            echo ucfirst($deviceName[0]) . ' ' . ucfirst($deviceName[1]); 
+                        } else { 
+                            echo ucfirst($device);
+                        }
+                    ?>
                         </a>
                         <ul class="nav-pills nav-stacked" style="list-style-type:none;">
                             <li class="item-instruct">
@@ -136,7 +146,19 @@ foreach ($codenames as $idx => $codename) {
                             foreach ($builds as $idx => $build) {
                         ?>            
                             <table id="<?= $devices[$idx] ?>" class="table table-hover table-striped table-condensed paginated">
-                            <caption class="text-center"><h3><?= ucfirst($devices[$idx]) ?> YU-OPEN-OS Build(s)</h3></caption>
+                            <caption class="text-center">
+                                <h3>
+                            <?php 
+                                if (strpos($device, "-") !== false) {
+                                    $deviceName = explode("-", $device);
+                                    echo ucfirst($deviceName[0]) . ' ' . ucfirst($deviceName[1]); 
+                                } else { 
+                                    echo ucfirst($device);
+                                }
+                            ?>
+                                    YU-OPEN-OS Build(s)
+                                </h3>
+                            </caption>
                                 <thead>
                                     <tr>
                                         <th>Device</th>
@@ -195,7 +217,19 @@ foreach ($codenames as $idx => $codename) {
                             </table>
 
                             <table id="<?= $devices[$idx] ?>-yuos" class="table table-hover table-striped table-condensed paginated">
-                                <caption class="text-center"><h3><?= ucfirst($devices[$idx]) ?> YUOS Official - Android 6.0.1 Build(s)</h3></caption>
+                                <caption class="text-center">
+                                    <h3>
+                                <?php 
+                                    if (strpos($devices[$idx], "-") !== false) {
+                                        $deviceName = explode("-", $devices[$idx]);
+                                        echo ucfirst($deviceName[0]) . ' ' . ucfirst($deviceName[1]); 
+                                    } else { 
+                                        echo ucfirst($devices[$idx]);
+                                    }
+                                ?>
+                                        YUOS Official - Android 6.0.1 Build(s)
+                                    </h3>
+                                </caption>
                                 <thead>
                                     <tr>
                                         <th>Device</th>
