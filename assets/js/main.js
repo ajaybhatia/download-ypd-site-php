@@ -95,6 +95,7 @@ $(document).ready(function() {
 
 	$('.item-instruct').click(function() {
 		var deviceName = $.trim($(this).parent().parent().children('a').first().text()).toLowerCase();
+		deviceName = deviceName.replace(/ /g, '-');
 		var deviceClass = "." + deviceName + "-flashing";
 		$(deviceClass).css('display', 'block');
 	});
